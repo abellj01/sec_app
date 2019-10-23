@@ -8,6 +8,14 @@ print("         Welcome to Geo Cyber Sec Assessment - Protect Your Business\n")
 
 industry = input("Select your industry (Defense /Finance /Public Sector /Charity /Online_Services /Other): ")
 
+if industry == "Online_Services" :
+    q_data = input("    Is Data central to your business? (Yes/No): ")
+    q_web = input("    Is your solution a Web Application? (Yes/No): ")
+    q_location = input("    Do you and business partner(s) work from home too? (Yes/No): ")
+    q_size = input("    Is the company size greater than 3? (Yes/No): ")
+    q_third_party = input("    Do you use Third parties for support and consultancy? (Yes/No)")
+    q_sec_policy = input("    Do you have an information security policy? (Yes/No)")
+
 if industry == "Defense" or industry == "D" :
     print("\nSummary")
     print("    Sorry, this feature has not been implemented yet.")
