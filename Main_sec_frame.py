@@ -8,13 +8,27 @@ print("         Welcome to Geo Cyber Sec Assessment - Protect Your Business\n")
 
 industry = input("Select your industry (Defense /Finance /Public Sector /Charity /Online_Services /Other): ")
 
+risk = 0
+
 if industry == "Online_Services" :
     q_data = input("    Is Data central to your business? (Yes/No): ")
+    if q_data == "Yes" :
+        risk += 1
     q_web = input("    Is your solution a Web Application? (Yes/No): ")
+    if q_web == "Yes" :
+        risk += 1
     q_location = input("    Do you and business partner(s) work from home too? (Yes/No): ")
+    if q_location == "Yes" :
+        risk += 1
     q_size = input("    Is the company size greater than 3? (Yes/No): ")
+    if q_size == "Yes" :
+        risk += 1
     q_third_party = input("    Do you use Third parties for support and consultancy? (Yes/No)")
+    if q_third_party == "Yes" :
+        risk += 1
     q_sec_policy = input("    Do you have an information security policy? (Yes/No)")
+    if q_sec_policy == "Yes" :
+        risk += 1
 
 if industry == "Defense" or industry == "D" :
     print("\nSummary")
@@ -41,7 +55,7 @@ elif industry == "Charity" or industry == "C" :
     print("    We recommend...read from the following CHARITY text file.")
 elif industry == "Online_Services" :
     print("\nSummary")
-    print("    This is what will be implemented")
+    print("    My security risk is ", risk)
 else:
     print("\nSummary")
     print("    Sorry, your industry is not listed")
