@@ -109,8 +109,19 @@ elif industry == "Charity" or industry == "C" :
     print("    We recommend...read from the following CHARITY text file.")
 elif industry == "Online_Services" :
     print("\nSummary")
-    print("    My security risk is ", risk)
-    print("    My security score is ", score)
+    if risk > 4 :
+        print("    Your Security risk: High")
+    elif risk > 2 :
+        print("    Your Security risk: Medium")
+    else :
+        print("    Your Security risk: Low")
+
+    if score > 10 :
+        print("    Your Security score: Green")
+    elif score > 5 :
+        print("    Your Security score: Orange")
+    else :
+        print("    Your Security score: Red")
 else:
     print("\nSummary")
     print("    Sorry, your industry is not listed")
