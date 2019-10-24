@@ -9,6 +9,7 @@ print("         Welcome to Geo Cyber Sec Assessment - Protect Your Business\n")
 industry = input("Select your industry (Defense /Finance /Public Sector /Charity /Online_Services /Other): ")
 
 risk = 0
+score = 0
 
 if industry == "Online_Services" :
     q_data = input("    Is Data central to your business? (Yes/No): ")
@@ -33,25 +34,55 @@ if industry == "Online_Services" :
     print("\nCan you please tell us a bit more about your business")
     if q_data == "Yes" :
         q1_data = input("    Are data stored on your personal computer backed up regularly (at least weekly)? (Y/N) ")
+        if q1_data == "Y" :
+            score += 1
         q2_data = input("    Are backup data restores tested at appropriate intervals (at least monthly)? (Y/N) ")
+        if q2_data == "Y" :
+            score += 1
         q3_data = input("    Are all backups secured with an appropriate level of protection for the type of data they contain? (Y/N) ")
+        if q3_data == "Y" :
+            score += 1
     if q_web == "Yes" :
         q4_web = input("    Do you carry out a vulnerability scan on your web app? (Y/N) ")
+        if q4_web == "Y" :
+            score += 1
         q5_web = input("    Have you ever had a penetration test carried out on your web application? (Y/N) ")
+        if q5_web == "Y" :
+            score += 1
     if q_location == "Yes" :
         q6_location = input("    Do you have firewalls at the boundaries between your start-up internal networks and the internet? (Y/N) ")
+        if q6_location == "Y" :
+            score += 1
         q7_location = input("    Does your start-up have up to date information asset register? (Y/N) ")
+        if q7_location == "Y" :
+            score += 1
     if q_size == "Yes" :
         q8_size = input("    Do you have a person responsible for security and data protection awareness? (Y/N) ")
-        q9_location = input("    Are all information security incidents or suspected weaknesses reported and recorded? (Y/N) ")
-        q10_location = input("    Do you report incidents to external bodies as required, such as law enforcement for criminal activity\n and the ICO for personal data breaches? (Y/N) ")
+        if q8_size == "Y" :
+            score += 1
+        q9_size = input("    Are all information security incidents or suspected weaknesses reported and recorded? (Y/N) ")
+        if q9_size == "Y" :
+            score += 1
+        q10_size = input("    Do you report incidents to external bodies as required, such as law enforcement for criminal activity\n and the ICO for personal data breaches? (Y/N) ")
+        if q10_size == "Y" :
+            score += 1
     if q_third_party == "Yes" :
         q11_third_party = input("    Do you use cloud providers to store company information? (Y/N) ")
+        if q11_third_party == "Y" :
+            score += 1
         q12_third_party = input("    Where do your cloud providers store your data? (Y/N) ")
+        if q12_third_party == "Y" :
+            score += 1
         q13_third_party = input("    Is your data encrypted whilst being stored by your cloud provider(s)? (Y/N) ")
+        if q13_third_party == "Y" :
+            score += 1
     if q_sec_policy == "Yes" :
         q14_sec_policy = input("    Do your policy refer to security incident management? (Y/N) ")
+        if q14_sec_policy == "Y" :
+            score += 1
         q15_sec_policy = input("    Do you know any specific regulations relating to information security which apply to your start-up? (Y/N) ")
+        if q15_sec_policy == "Y" :
+            score += 1
 
 if industry == "Defense" or industry == "D" :
     print("\nSummary")
@@ -79,10 +110,10 @@ elif industry == "Charity" or industry == "C" :
 elif industry == "Online_Services" :
     print("\nSummary")
     print("    My security risk is ", risk)
+    print("    My security score is ", score)
 else:
     print("\nSummary")
     print("    Sorry, your industry is not listed")
-    print("    What Next:\n    We recommend reading the contents of 'other' text file because:")
     f = open("other.txt", "r")
     print(f.read())
     f.close()
