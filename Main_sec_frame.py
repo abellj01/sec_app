@@ -84,6 +84,24 @@ if industry == "Online_Services" :
         if q15_sec_policy == "Y" :
             score += 1
 
+other_score = 0
+if industry == "Other" :
+    q1_firewall = input("    Are your business tools (laptop/mobile/tablet) protected by a firewall to stop external attacks\n and help prevent data breaches? (Y/N) ")
+    if q1_firewall == "Y" :
+        other_score += 1
+    q2_sec_config = input("    Are your business tools (laptop/mobile/tablet) configured to reduce vulnerabilities\n and provide only the functionality and services required? (Y/N) ")
+    if q2_sec_config == "Y" :
+        other_score += 1
+    q3_access_cntrl = input("    Do your business tools (laptop/mobile/tablet) have separate accounts (administator account and basic user)? (Y/N) ")
+    if q3_access_cntrl == "Y" :
+        other_score += 1
+    q4_malware_protection = input("    Do your business tools (laptop/mobile/tablet) have effective anti-malware defences\n to protect them from malware infection? (Y/N) ")
+    if q4_malware_protection == "Y" :
+        other_score += 1
+    q5_patch_mangmt = input("    Are software and applications within your business tools (laptop/mobile/tablet) updated regurlarly\n and the latest security patches applied? (Y/N) ")
+    if q5_patch_mangmt == "Y" :
+        other_score += 1
+
 if industry == "Defense" or industry == "D" :
     print("\nSummary")
     print("    Sorry, this feature has not been implemented yet.")
@@ -128,3 +146,4 @@ else:
     f = open("other.txt", "r")
     print(f.read())
     f.close()
+    print("    Your basic security score", other_score)
