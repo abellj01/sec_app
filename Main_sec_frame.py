@@ -11,6 +11,7 @@ industry = input("Select your industry (Defense /Finance /Public Sector /Charity
 risk = 0
 score = 0
 other_score = 0
+other_answers = []
 
 if industry == "Online_Services" :
     q_data = input("    Is Data central to your business? (Yes/No): ")
@@ -129,23 +130,33 @@ else:
     f = open("other.txt", "r")
     print(f.read())
     f.close()
-    q1_firewall = input("    Are your business tools (laptop/mobile/tablet) protected by a firewall to stop external attacks\n and help prevent data breaches? (Y/N) ")
+    q1_firewall = input("    Are your business tools (laptop/mobile/tablet) protected by a firewall to stop external attacks\n    and help prevent data breaches? (Y/N) ")
     if q1_firewall == "Y" :
         other_score += 1
-    q2_sec_config = input("    Are your business tools (laptop/mobile/tablet) configured to reduce vulnerabilities\n and provide only the functionality and services required? (Y/N) ")
+    else :
+        other_answers.append("You are missing firewalls")
+    q2_sec_config = input("    Are your business tools (laptop/mobile/tablet) configured to reduce vulnerabilities\n    and provide only the functionality and services required? (Y/N) ")
     if q2_sec_config == "Y" :
         other_score += 1
+    else :
+        other_answers.append("Your business tools are not securely configured")
     q3_access_cntrl = input("    Do your business tools (laptop/mobile/tablet) have separate accounts (administator account and basic user)? (Y/N) ")
     if q3_access_cntrl == "Y" :
         other_score += 1
-    q4_malware_protection = input("    Do your business tools (laptop/mobile/tablet) have effective anti-malware defences\n to protect them from malware infection? (Y/N) ")
+    else :
+        other_answers.append("The permissons to access personal informations is not restricted to the absolute min")
+    q4_malware_protection = input("    Do your business tools (laptop/mobile/tablet) have effective anti-malware defences\n    to protect them from malware infection? (Y/N) ")
     if q4_malware_protection == "Y" :
         other_score += 1
-    q5_patch_mangmt = input("    Are software and applications within your business tools (laptop/mobile/tablet) updated regurlarly\n and the latest security patches applied? (Y/N) \n")
+    else :
+        other_answers.append("You have not installed or updated the malware protection software which regularly scan your computer system to detect and prevent threats")
+    q5_patch_mangmt = input("    Are software and applications within your business tools (laptop/mobile/tablet) updated regurlarly\n    and the latest security patches applied? (Y/N) ")
     if q5_patch_mangmt == "Y" :
         other_score += 1
+    else :
+        other_answers.append("You are not using the latest versions of operating systems, web browsers and applications to help prevent the exploitation of unpatched vulnerabilities")
 
-    print("    Results:")
+    print("    \nResults:")
     if other_score == 5 :
         print("    Well done, You have the basic security controls in place")
         print("    What Next")
@@ -154,10 +165,13 @@ else:
     if other_score == 4 :
         print("    Yes, You are nearly there, off by 1.")
     if other_score == 3 :
-        print("    Not too bad, You are missing two controls")
+        print("    You are not doing too bad, You are missing two controls")
     if other_score == 2 :
         print("    You are exposed to over 50% of most low level attacks.")
     if other_score == 1 :
         print("    Okay, You are missing a lot of controls")
     if other_score == 0 :
         print("    Ooops!!! You are vulnerable to most attacks")
+
+    for x in other_answers :
+        print(x)
